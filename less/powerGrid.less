@@ -1,0 +1,59 @@
+@grid-columns: 12;		/* Total column count */
+@grid-gap: 0.01;		/* The gap width -- percentage of the element .power-grid */
+
+.power-grid {
+	.fn-clearfix();
+	.fn-make-grid();
+}
+
+/* Utilities */
+.fn-make-grid () {
+	.pg-row {
+		.fn-clearfix();
+		.fn-make-pg-cols(ms);
+	}
+}
+
+.fn-make-pg-cols (@type) {
+	.fn-make-pg-cols(@grid-columns, @type, l);
+	.fn-make-pg-cols(@grid-columns, @type, r);
+}
+
+.fn-make-pg-cols (@count, @type, @style) when (@count > 0) {
+	.fn-make-pg-col (@count, @type, @style);
+	/* Loop */
+	.fn-make-pg-cols (@count - 1, @type, @style);
+}
+
+.fn-make-pg-col (@count, @type, @style) when (@style = l) {
+	.pg-col-@{type}-@{style}@{count} { float: left; }
+}
+
+.fn-make-pg-col (@count, @type, @style) when (@style = r) {
+	.pg-col-@{type}-@{style}@{count} { float: right; }
+}
+
+.fn-make-pg-col (@count, @type, @style) when (@count > 0) {
+	.pg-col-@{type}-@{style}@{count} {
+		position: relative;
+		display: block;
+		width: percentage(((@count / @grid-columns) - @grid-gap));
+		padding-left: (percentage(@grid-gap) / 2);
+		padding-right: (percentage(@grid-gap) / 2);
+	}
+}
+
+.fn-clearfix () {
+	*zoom: 1;
+	height: 1%;
+	&:before, &:after {
+		content: ".";
+		display: block;
+		clear: both;
+		visibility: hidden;
+		line-height: 0;
+		height: 0;
+		font-size: 0;
+	}
+}
+

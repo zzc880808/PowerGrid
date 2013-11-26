@@ -1,0 +1,428 @@
+/* reset.css by Zichen.Zheng */
+/* @group general styles 页面上各种元素的通用样式
+--------------------------------------------------------*/
+/* @reset. DO NOT modify!!! reset网页上元素的默认样式 */
+/* Authored by Eric Meyer. 20080212-v1.0 */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+/* remember to define focus styles! */
+:focus {
+  outline: 0;
+}
+/* remember to highlight inserts somehow! */
+ins {
+  text-decoration: none;
+}
+del {
+  text-decoration: line-through;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+/* @reset end */
+/* @clearfix */
+.clearfix:after {
+  content: '.';
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+  font-size: 0;
+}
+.clearfix {
+  *zoom: 1;
+  height: 1%;
+}
+/* Total column count */
+/* The gap width -- percentage of the element .power-grid */
+.power-grid {
+  *zoom: 1;
+  height: 1%;
+}
+.power-grid:before,
+.power-grid:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+  font-size: 0;
+}
+.power-grid .pg-row {
+  *zoom: 1;
+  height: 1%;
+  /* Loop */
+  /* Loop */
+  /* Loop */
+  /* Loop */
+  /* Loop */
+  /* Loop */
+  /* Loop */
+  /* Loop */
+  /* Loop */
+  /* Loop */
+  /* Loop */
+  /* Loop */
+  /* Loop */
+  /* Loop */
+  /* Loop */
+  /* Loop */
+  /* Loop */
+  /* Loop */
+  /* Loop */
+  /* Loop */
+  /* Loop */
+  /* Loop */
+  /* Loop */
+  /* Loop */
+}
+.power-grid .pg-row:before,
+.power-grid .pg-row:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+  font-size: 0;
+}
+.power-grid .pg-row .pg-col-ms-l12 {
+  float: left;
+}
+.power-grid .pg-row .pg-col-ms-l12 {
+  position: relative;
+  display: block;
+  width: 99%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+.power-grid .pg-row .pg-col-ms-l11 {
+  float: left;
+}
+.power-grid .pg-row .pg-col-ms-l11 {
+  position: relative;
+  display: block;
+  width: 90.66666666666666%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+.power-grid .pg-row .pg-col-ms-l10 {
+  float: left;
+}
+.power-grid .pg-row .pg-col-ms-l10 {
+  position: relative;
+  display: block;
+  width: 82.33333333333334%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+.power-grid .pg-row .pg-col-ms-l9 {
+  float: left;
+}
+.power-grid .pg-row .pg-col-ms-l9 {
+  position: relative;
+  display: block;
+  width: 74%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+.power-grid .pg-row .pg-col-ms-l8 {
+  float: left;
+}
+.power-grid .pg-row .pg-col-ms-l8 {
+  position: relative;
+  display: block;
+  width: 65.66666666666666%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+.power-grid .pg-row .pg-col-ms-l7 {
+  float: left;
+}
+.power-grid .pg-row .pg-col-ms-l7 {
+  position: relative;
+  display: block;
+  width: 57.333333333333336%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+.power-grid .pg-row .pg-col-ms-l6 {
+  float: left;
+}
+.power-grid .pg-row .pg-col-ms-l6 {
+  position: relative;
+  display: block;
+  width: 49%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+.power-grid .pg-row .pg-col-ms-l5 {
+  float: left;
+}
+.power-grid .pg-row .pg-col-ms-l5 {
+  position: relative;
+  display: block;
+  width: 40.666666666666664%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+.power-grid .pg-row .pg-col-ms-l4 {
+  float: left;
+}
+.power-grid .pg-row .pg-col-ms-l4 {
+  position: relative;
+  display: block;
+  width: 32.33333333333333%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+.power-grid .pg-row .pg-col-ms-l3 {
+  float: left;
+}
+.power-grid .pg-row .pg-col-ms-l3 {
+  position: relative;
+  display: block;
+  width: 24%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+.power-grid .pg-row .pg-col-ms-l2 {
+  float: left;
+}
+.power-grid .pg-row .pg-col-ms-l2 {
+  position: relative;
+  display: block;
+  width: 15.666666666666664%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+.power-grid .pg-row .pg-col-ms-l1 {
+  float: left;
+}
+.power-grid .pg-row .pg-col-ms-l1 {
+  position: relative;
+  display: block;
+  width: 7.333333333333333%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+.power-grid .pg-row .pg-col-ms-r12 {
+  float: right;
+}
+.power-grid .pg-row .pg-col-ms-r12 {
+  position: relative;
+  display: block;
+  width: 99%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+.power-grid .pg-row .pg-col-ms-r11 {
+  float: right;
+}
+.power-grid .pg-row .pg-col-ms-r11 {
+  position: relative;
+  display: block;
+  width: 90.66666666666666%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+.power-grid .pg-row .pg-col-ms-r10 {
+  float: right;
+}
+.power-grid .pg-row .pg-col-ms-r10 {
+  position: relative;
+  display: block;
+  width: 82.33333333333334%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+.power-grid .pg-row .pg-col-ms-r9 {
+  float: right;
+}
+.power-grid .pg-row .pg-col-ms-r9 {
+  position: relative;
+  display: block;
+  width: 74%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+.power-grid .pg-row .pg-col-ms-r8 {
+  float: right;
+}
+.power-grid .pg-row .pg-col-ms-r8 {
+  position: relative;
+  display: block;
+  width: 65.66666666666666%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+.power-grid .pg-row .pg-col-ms-r7 {
+  float: right;
+}
+.power-grid .pg-row .pg-col-ms-r7 {
+  position: relative;
+  display: block;
+  width: 57.333333333333336%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+.power-grid .pg-row .pg-col-ms-r6 {
+  float: right;
+}
+.power-grid .pg-row .pg-col-ms-r6 {
+  position: relative;
+  display: block;
+  width: 49%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+.power-grid .pg-row .pg-col-ms-r5 {
+  float: right;
+}
+.power-grid .pg-row .pg-col-ms-r5 {
+  position: relative;
+  display: block;
+  width: 40.666666666666664%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+.power-grid .pg-row .pg-col-ms-r4 {
+  float: right;
+}
+.power-grid .pg-row .pg-col-ms-r4 {
+  position: relative;
+  display: block;
+  width: 32.33333333333333%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+.power-grid .pg-row .pg-col-ms-r3 {
+  float: right;
+}
+.power-grid .pg-row .pg-col-ms-r3 {
+  position: relative;
+  display: block;
+  width: 24%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+.power-grid .pg-row .pg-col-ms-r2 {
+  float: right;
+}
+.power-grid .pg-row .pg-col-ms-r2 {
+  position: relative;
+  display: block;
+  width: 15.666666666666664%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+.power-grid .pg-row .pg-col-ms-r1 {
+  float: right;
+}
+.power-grid .pg-row .pg-col-ms-r1 {
+  position: relative;
+  display: block;
+  width: 7.333333333333333%;
+  padding-left: 0.5%;
+  padding-right: 0.5%;
+}
+/* Utilities */
+body {
+  font-family: "宋体", arial;
+}
+.inner {
+  display: block;
+  width: 100%;
+  height: 100px;
+  background-color: #eee;
+}
