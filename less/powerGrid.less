@@ -19,8 +19,7 @@
 	.pg-row { 
 		position: relative;
 		display: block;
-		margin-left: (@grid-gap / -2);
-		margin-right: (@grid-gap / -2);
+		margin: (@grid-gap / 2) (@grid-gap / -2);
 		.fn-clearfix();
 	}
 }
@@ -53,7 +52,6 @@
 
 .fn-clearfix () {
 	*zoom: 1;
-	height: 1%;
 	&:before, &:after {
 		content: ".";
 		display: block;

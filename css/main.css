@@ -126,7 +126,6 @@ table {
 /* The gap width */
 .power-grid {
   *zoom: 1;
-  height: 1%;
 }
 .power-grid .pg-col-inner {
   position: relative;
@@ -149,10 +148,8 @@ table {
 .power-grid .pg-row {
   position: relative;
   display: block;
-  margin-left: -10px;
-  margin-right: -10px;
+  margin: 10px -10px;
   *zoom: 1;
-  height: 1%;
 }
 .power-grid .pg-row:before,
 .power-grid .pg-row:after {
@@ -359,11 +356,21 @@ table {
 body {
   font-family: "宋体", arial;
 }
+/*
+.pg-row {
+	border-top:1px solid red;
+	border-bottom:1px solid red;
+}
+*/
 .pg-col-inner {
-  display: block;
-  height: 100px;
-  background-color: #eee;
+  min-height: 100px;
+  height: 100%;
+  /*
+	border-top:1px solid blue;
+	border-bottom:1px solid blue;
+*/
 }
 p {
   width: 100%;
+  background-color: green;
 }
