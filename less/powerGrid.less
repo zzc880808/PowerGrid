@@ -1,16 +1,27 @@
 @grid-columns: 12;		/* Total column count */
-@grid-gap: 0.01;		/* The gap width -- percentage of the element .power-grid */
+@grid-gap: 20px;		/* The gap width */
 
 .power-grid {
+	.pg-col-inner {
+		position: relative;
+		display: block;
+		overflow: hidden;
+		margin-left: (@grid-gap / 2);
+		margin-right: (@grid-gap / 2);
+		min-height: 1px;
+	}
 	.fn-clearfix();
-	.fn-make-grid();
+	.fn-make-pg-row();
+	.fn-make-pg-cols(s1);
 }
 
-/* Utilities */
-.fn-make-grid () {
-	.pg-row {
+.fn-make-pg-row () {
+	.pg-row { 
+		position: relative;
+		display: block;
+		margin-left: (@grid-gap / -2);
+		margin-right: (@grid-gap / -2);
 		.fn-clearfix();
-		.fn-make-pg-cols(ms);
 	}
 }
 
@@ -21,7 +32,6 @@
 
 .fn-make-pg-cols (@count, @type, @style) when (@count > 0) {
 	.fn-make-pg-col (@count, @type, @style);
-	/* Loop */
 	.fn-make-pg-cols (@count - 1, @type, @style);
 }
 
@@ -37,9 +47,7 @@
 	.pg-col-@{type}-@{style}@{count} {
 		position: relative;
 		display: block;
-		width: percentage(((@count / @grid-columns) - @grid-gap));
-		padding-left: (percentage(@grid-gap) / 2);
-		padding-right: (percentage(@grid-gap) / 2);
+		width: percentage(@count / @grid-columns);
 	}
 }
 
