@@ -2,24 +2,27 @@
 @grid-gap: 20px;		/* The gap width */
 
 .power-grid {
-	.pg-col-inner {
-		position: relative;
-		display: block;
-		overflow: hidden;
-		margin-left: (@grid-gap / 2);
-		margin-right: (@grid-gap / 2);
-		min-height: 1px;
-	}
+	.fn-pg-general();
 	.fn-clearfix();
-	.fn-make-pg-row();
-	.fn-make-pg-cols(s1);
+}
+
+.fn-make-pg-row();
+
+.fn-make-pg-cols(s1);
+
+.fn-make-pg-offs(s1);
+
+.pg-col-inner {
+	margin-left: (@grid-gap / 2);
+	margin-right: (@grid-gap / 2);
+	min-height: 1px;
+	.fn-pg-general();
 }
 
 .fn-make-pg-row () {
-	.pg-row { 
-		position: relative;
-		display: block;
+	.pg-row {
 		margin: (@grid-gap / 2) (@grid-gap / -2);
+		.fn-pg-general();
 		.fn-clearfix();
 	}
 }
@@ -34,20 +37,43 @@
 	.fn-make-pg-cols (@count - 1, @type, @style);
 }
 
-.fn-make-pg-col (@count, @type, @style) when (@style = l) {
-	.pg-col-@{type}-@{style}@{count} { float: left; }
-}
-
-.fn-make-pg-col (@count, @type, @style) when (@style = r) {
-	.pg-col-@{type}-@{style}@{count} { float: right; }
-}
-
 .fn-make-pg-col (@count, @type, @style) when (@count > 0) {
 	.pg-col-@{type}-@{style}@{count} {
-		position: relative;
-		display: block;
 		width: percentage(@count / @grid-columns);
+		.fn-pg-general();
+		.fn-make-pg-col-float(@style);
 	}
+}
+
+.fn-make-pg-col-float (@style) when (@style = l) { float: left; }
+.fn-make-pg-col-float (@style) when (@style = r) { float: right; }
+
+.fn-make-pg-offs (@type) {
+	.fn-make-pg-offs(@grid-columns, @type, l);
+	.fn-make-pg-offs(@grid-columns, @type, r);
+}
+
+.fn-make-pg-offs (@count, @type, @style) when (@count > 0) {
+	.fn-make-pg-off (@count, @type, @style);
+	.fn-make-pg-offs (@count - 1, @type, @style);
+}
+
+.fn-make-pg-off (@count, @type, @style) when (@count > 0) and (@style = l) {
+	.pg-off-@{type}-@{style}@{count} {
+		left: percentage(@count / @grid-columns);
+	}
+}
+
+.fn-make-pg-off (@count, @type, @style) when (@count > 0) and (@style = r) {
+	.pg-off-@{type}-@{style}@{count} {
+		right: percentage(@count / @grid-columns);
+	}
+}
+
+.fn-pg-general () {
+	position: relative;
+	display: block;
+	overflow: hidden;
 }
 
 .fn-clearfix () {
