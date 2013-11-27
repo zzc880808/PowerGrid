@@ -1,5 +1,7 @@
-@grid-columns: 12;		/* Total column count */
-@grid-gap: 20px;		/* The gap width */
+@grid-columns: 12; /* Total column count */
+@grid-gap: 20px; /* The gap width */
+@grid-level: 1; /* The cols' type count */
+@grid-float-direction: left;
 
 .power-grid {
 	.fn-pg-general();
@@ -8,9 +10,7 @@
 
 .fn-make-pg-row();
 
-.fn-make-pg-cols(s1);
-
-.fn-make-pg-offs(s1);
+.fn-make-pg-items();
 
 .pg-col-inner {
 	margin-left: (@grid-gap / 2);
@@ -27,45 +27,38 @@
 	}
 }
 
-.fn-make-pg-cols (@type) {
-	.fn-make-pg-cols(@grid-columns, @type, l);
-	.fn-make-pg-cols(@grid-columns, @type, r);
+.fn-make-pg-items (@level: @grid-level) when (@level > 0) {
+	.fn-make-pg-cols(@grid-columns, @level);
+	.fn-make-pg-offs(@grid-columns, @level, l);
+	.fn-make-pg-offs(@grid-columns, @level, r);
+	.fn-make-pg-items(@level - 1);
 }
 
-.fn-make-pg-cols (@count, @type, @style) when (@count > 0) {
-	.fn-make-pg-col (@count, @type, @style);
-	.fn-make-pg-cols (@count - 1, @type, @style);
+/* Make columes */
+.fn-make-pg-cols (@count, @level) when (@count > 0) {
+	.fn-make-pg-col(@count, @level);
+	.fn-make-pg-cols(@count - 1, @level);
 }
-
-.fn-make-pg-col (@count, @type, @style) when (@count > 0) {
-	.pg-col-@{type}-@{style}@{count} {
+.fn-make-pg-col (@count, @level) {
+	.pg-col-s@{level}-@{count} {
 		width: percentage(@count / @grid-columns);
+		float: @grid-float-direction;
 		.fn-pg-general();
-		.fn-make-pg-col-float(@style);
 	}
 }
 
-.fn-make-pg-col-float (@style) when (@style = l) { float: left; }
-.fn-make-pg-col-float (@style) when (@style = r) { float: right; }
-
-.fn-make-pg-offs (@type) {
-	.fn-make-pg-offs(@grid-columns, @type, l);
-	.fn-make-pg-offs(@grid-columns, @type, r);
+/* Make offsets */
+.fn-make-pg-offs (@count, @level, @style) when (@count > 0) {
+	.fn-make-pg-off (@count, @level, @style);
+	.fn-make-pg-offs (@count - 1, @level, @style);
 }
-
-.fn-make-pg-offs (@count, @type, @style) when (@count > 0) {
-	.fn-make-pg-off (@count, @type, @style);
-	.fn-make-pg-offs (@count - 1, @type, @style);
-}
-
-.fn-make-pg-off (@count, @type, @style) when (@count > 0) and (@style = l) {
-	.pg-off-@{type}-@{style}@{count} {
+.fn-make-pg-off (@count, @level, l) {
+	.pg-off-s@{level}-l@{count} {
 		left: percentage(@count / @grid-columns);
 	}
 }
-
-.fn-make-pg-off (@count, @type, @style) when (@count > 0) and (@style = r) {
-	.pg-off-@{type}-@{style}@{count} {
+.fn-make-pg-off (@count, @level, r) {
+	.pg-off-s@{level}-r@{count} {
 		right: percentage(@count / @grid-columns);
 	}
 }
