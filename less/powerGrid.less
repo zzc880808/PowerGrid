@@ -12,6 +12,8 @@
 
 .fn-make-pg-items();
 
+.fn-make-col-pull();
+
 .pg-col-inner {
 	margin-left: (@grid-gap / 2);
 	margin-right: (@grid-gap / 2);
@@ -21,7 +23,7 @@
 
 .fn-make-pg-row () {
 	.pg-row {
-		margin: (@grid-gap / 2) (@grid-gap / -2);
+		margin: 0 (@grid-gap / -2);
 		.fn-pg-general();
 		.fn-clearfix();
 	}
@@ -63,6 +65,13 @@
 	}
 }
 
+.fn-make-col-pull () when (@grid-float-direction = left) {
+	.pg-col-pull { float: right; }
+}
+.fn-make-col-pull () when (@grid-float-direction = right) {
+	.pg-col-pull { float: left; }
+}
+
 .fn-pg-general () {
 	position: relative;
 	display: block;
@@ -76,9 +85,9 @@
 		display: block;
 		clear: both;
 		visibility: hidden;
-		line-height: 0;
 		height: 0;
 		font-size: 0;
+		line-height: 0;
 	}
 }
 

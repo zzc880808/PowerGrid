@@ -13,12 +13,12 @@
   display: block;
   clear: both;
   visibility: hidden;
-  line-height: 0;
   height: 0;
   font-size: 0;
+  line-height: 0;
 }
 .pg-row {
-  margin: 10px -10px;
+  margin: 0 -10px;
   position: relative;
   display: block;
   overflow: hidden;
@@ -30,9 +30,9 @@
   display: block;
   clear: both;
   visibility: hidden;
-  line-height: 0;
   height: 0;
   font-size: 0;
+  line-height: 0;
 }
 .pg-col-s1-12 {
   width: 100%;
@@ -190,6 +190,9 @@
 .pg-off-s1-r1 {
   right: 8.333333333333332%;
 }
+.pg-col-pull {
+  float: right;
+}
 .pg-col-inner {
   margin-left: 10px;
   margin-right: 10px;
@@ -202,20 +205,6 @@
 /* Make offsets */
 body {
   font-family: "宋体", arial;
-}
-/*
-.pg-row {
-	border-top:1px solid red;
-	border-bottom:1px solid red;
-}
-*/
-.pg-col-inner {
-  min-height: 100px;
-  height: 100%;
-  /*
-	border-top:1px solid blue;
-	border-bottom:1px solid blue;
-*/
 }
 p {
   width: 100%;
