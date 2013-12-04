@@ -1,24 +1,47 @@
-@grid-columns: 12; /* Total column count */
-@grid-gap: 20px; /* The gap width */
-@grid-level: 1; /* The cols' type count */
 @grid-float-direction: left;
+@grid-columns: 12; // Total column count
+@grid-gap: 20px; // The gap width
+@grid-level: 3; // The cols' type count
+@grid-s1-width: 0px;
+@grid-s2-width: 768px;
+@grid-s3-width: 992px;
 
-.power-grid {
+.pg-grid {
 	.fn-pg-general();
-	.fn-clearfix();
 }
+
+.pg-grid-resp {
+	margin-left: auto;
+	margin-right: auto;
+	.fn-pg-general();
+}
+
+.fn-make-pg-grid-resp();
 
 .fn-make-pg-row();
 
 .fn-make-pg-items();
 
-.fn-make-col-pull();
-
 .pg-col-inner {
 	margin-left: (@grid-gap / 2);
 	margin-right: (@grid-gap / 2);
-	min-height: 1px;
 	.fn-pg-general();
+}
+
+.fn-make-pg-grid-resp (@level: 1) when (@level = 1) {
+	@widthVar: "grid-s@{level}-width";
+	@media (min-width: @@widthVar) {
+		.pg-grid-resp { width: 100%; }
+	}
+	.fn-make-pg-grid-resp (@level + 1);
+}
+
+.fn-make-pg-grid-resp (@level) when (@level > 1) and (@level <= @grid-level) {
+	@widthVar: "grid-s@{level}-width";
+	@media (min-width: @@widthVar) {
+		.pg-grid-resp { width: @@widthVar; }
+	}
+	.fn-make-pg-grid-resp (@level + 1);
 }
 
 .fn-make-pg-row () {
@@ -29,14 +52,23 @@
 	}
 }
 
-.fn-make-pg-items (@level: @grid-level) when (@level > 0) {
-	.fn-make-pg-cols(@grid-columns, @level);
-	.fn-make-pg-offs(@grid-columns, @level, l);
-	.fn-make-pg-offs(@grid-columns, @level, r);
-	.fn-make-pg-items(@level - 1);
+.fn-make-pg-items (@level: 1) when (@level <= @grid-level) {
+	@widthVar: "grid-s@{level}-width";
+	@media (min-width: @@widthVar) {
+		.fn-make-pg-cols(@grid-columns, @level);
+		.fn-make-pg-offs(@grid-columns, @level);
+		.fn-make-visibility(@level);
+	}
+	.fn-make-pg-items(@level + 1);
 }
 
-/* Make columes */
+// Make visibility
+.fn-make-visibility (@level) {
+	.pg-show-s@{level} { display:block; }
+	.pg-hide-s@{level} { display:none; }
+}
+
+// Make columes
 .fn-make-pg-cols (@count, @level) when (@count > 0) {
 	.fn-make-pg-col(@count, @level);
 	.fn-make-pg-cols(@count - 1, @level);
@@ -49,27 +81,20 @@
 	}
 }
 
-/* Make offsets */
-.fn-make-pg-offs (@count, @level, @style) when (@count > 0) {
-	.fn-make-pg-off (@count, @level, @style);
-	.fn-make-pg-offs (@count - 1, @level, @style);
+// Make offsets
+.fn-make-pg-offs (@count, @level) when (@count > 0) {
+	.fn-make-pg-off (@count, @level, @grid-float-direction);
+	.fn-make-pg-offs (@count - 1, @level);
 }
-.fn-make-pg-off (@count, @level, l) {
-	.pg-off-s@{level}-l@{count} {
-		left: percentage(@count / @grid-columns);
+.fn-make-pg-off (@count, @level, left) {
+	.pg-off-s@{level}-@{count} {
+		margin-left: percentage(@count / @grid-columns);
 	}
 }
-.fn-make-pg-off (@count, @level, r) {
-	.pg-off-s@{level}-r@{count} {
-		right: percentage(@count / @grid-columns);
+.fn-make-pg-off (@count, @level, right) {
+	.pg-off-s@{level}-@{count} {
+		margin-right: percentage(@count / @grid-columns);
 	}
-}
-
-.fn-make-col-pull () when (@grid-float-direction = left) {
-	.pg-col-pull { float: right; }
-}
-.fn-make-col-pull () when (@grid-float-direction = right) {
-	.pg-col-pull { float: left; }
 }
 
 .fn-pg-general () {
