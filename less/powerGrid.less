@@ -20,9 +20,8 @@
 }
 
 .fn-make-pg-grid-resp();
-
+.fn-make-pg-visibility-def();
 .fn-make-pg-row();
-
 .fn-make-pg-items();
 
 .pg-col-inner {
@@ -31,6 +30,9 @@
 	.fn-pg-general();
 }
 
+// Functions
+
+// Make pg-grid-resp
 .fn-make-pg-grid-resp (@level: 1) when (@level = 1) {
 	@widthVar: "grid-s@{level}-width";
 	@media (min-width: @@widthVar) {
@@ -38,7 +40,6 @@
 	}
 	.fn-make-pg-grid-resp (@level + 1);
 }
-
 .fn-make-pg-grid-resp (@level) when (@level > 1) and (@level <= @grid-level) {
 	@widthVar: "grid-s@{level}-width";
 	@media (min-width: @@widthVar) {
@@ -47,6 +48,14 @@
 	.fn-make-pg-grid-resp (@level + 1);
 }
 
+// Make the default value of pg-show-s*, pg-hide-s*
+.fn-make-pg-visibility-def (@level: 1) when (@level <= @grid-level) {
+	.pg-show-s@{level} { display:none; }
+	.pg-hide-s@{level} { display:block; }
+	.fn-make-pg-visibility-def(@level + 1);
+}
+
+// Make pg-row
 .fn-make-pg-row () {
 	.pg-row {
 		margin-left: @grid-gap / -2;
@@ -56,48 +65,49 @@
 	}
 }
 
+// Make pg-col-s*-*, pg-off-s*-*, pg-show-s*, pg-hide-s*
 .fn-make-pg-items (@level: 1) when (@level <= @grid-level) {
 	@widthVar: "grid-s@{level}-width";
 	@media (min-width: @@widthVar) {
 		.fn-make-pg-cols(@grid-columns, @level);
 		.fn-make-pg-offs(@grid-columns, @level);
-		.fn-make-visibility(@level);
+		.fn-make-pg-visibility(@level);
 	}
 	.fn-make-pg-items(@level + 1);
 }
 
-// Make visibility
-.fn-make-visibility (@level) {
+// Make pg-show-s*, pg-hide-s*
+.fn-make-pg-visibility (@level) {
 	.pg-show-s@{level} { display:block; }
 	.pg-hide-s@{level} { display:none; }
 }
 
-// Make columes
+// Make pg-col-s*-*
 .fn-make-pg-cols (@count, @level) when (@count > 0) {
 	.fn-make-pg-col(@count, @level);
 	.fn-make-pg-cols(@count - 1, @level);
 }
 .fn-make-pg-col (@count, @level) {
 	.pg-col-s@{level}-@{count} {
-		width: percentage(@count / @grid-columns);
+		width: percentage(@count / @grid-columns) * 0.9995;
 		float: @grid-float-direction;
 		.fn-pg-general();
 	}
 }
 
-// Make offsets
+// Make pg-off-s*-*
 .fn-make-pg-offs (@count, @level) when (@count > 0) {
 	.fn-make-pg-off (@count, @level, @grid-float-direction);
 	.fn-make-pg-offs (@count - 1, @level);
 }
 .fn-make-pg-off (@count, @level, left) {
 	.pg-off-s@{level}-@{count} {
-		margin-left: percentage(@count / @grid-columns);
+		margin-left: percentage(@count / @grid-columns) * 0.9995;
 	}
 }
 .fn-make-pg-off (@count, @level, right) {
 	.pg-off-s@{level}-@{count} {
-		margin-right: percentage(@count / @grid-columns);
+		margin-right: percentage(@count / @grid-columns) * 0.9995;
 	}
 }
 

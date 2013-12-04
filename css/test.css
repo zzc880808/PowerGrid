@@ -1,7 +1,5 @@
 body {font-family:"宋体",arial;}
 
-.pg-col-inner { margin-bottom:20px; border: 1px solid #000; min-height:100px; }
-
-p {width:100%;}
+.pg-col-inner { border:1px solid #000; margin-bottom:20px; min-height:100px; }
 
 big { font-size:200%; }
