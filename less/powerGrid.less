@@ -1,10 +1,13 @@
 @grid-float-direction: left;
+
 @grid-columns: 12; // Total column count
 @grid-gap: 20px; // The gap width
 @grid-level: 3; // The cols' type count
+
 @grid-s1-width: 0px;
 @grid-s2-width: 768px;
-@grid-s3-width: 992px;
+@grid-s3-width: 960px;
+
 
 .pg-grid {
 	.fn-pg-general();
@@ -46,7 +49,8 @@
 
 .fn-make-pg-row () {
 	.pg-row {
-		margin: 0 (@grid-gap / -2);
+		margin-left: @grid-gap / -2;
+		margin-right: @grid-gap / -2;
 		.fn-pg-general();
 		.fn-clearfix();
 	}
